@@ -51,3 +51,28 @@ limit 1;
 the output: 2019-09-26
 
 ## Question 5. Three biggest pick up Boroughs
+```sql
+SELECT
+    zpu."Borough"
+FROM
+    green_tripdata t
+JOIN zones zpu
+    ON t."PULocationID" = zpu."LocationID"
+JOIN zones zdo
+    ON t."DOLocationID" = zdo."LocationID"
+WHERE
+    lpep_pickup_datetime >= '2019-09-18 00:00:00' AND
+    lpep_pickup_datetime < '2019-09-19 00:00:00' AND
+    zpu."Borough" != 'Unknown'
+GROUP BY
+    zpu."Borough"
+HAVING
+    SUM(total_amount) > 50000
+ORDER BY
+    SUM(total_amount) DESC
+LIMIT 3;
+```
+## Question 6. Largest tip
+```sql
+
+```
