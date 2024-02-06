@@ -76,3 +76,8 @@ LIMIT 3;
 ```sql
 
 ```
+# Terraform
+## Question 7. Creating Resources
+```bash
+terraform apply
+```
